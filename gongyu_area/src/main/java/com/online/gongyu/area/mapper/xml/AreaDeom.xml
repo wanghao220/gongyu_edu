@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.online.gongyu.area.dao.AreaDao">
+
+
+    <resultMap id="area" type="com.online.gongyu.area.entity.test">
+        <id property="" column=""></id>
+        <result property="" column=""></result>
+        <collection property="" ofType="com.online.gongyu.area.entity.Metro">
+            <id property="" column=""></id>
+            <result property="" column=""></result>
+            <collection property="" ofType="">
+                <result property="" column=""></result>
+            </collection>
+        </collection>
+    </resultMap>
+
+
+    <select id="getList" resultType="aera">
+
+    </select>
+
+</mapper>

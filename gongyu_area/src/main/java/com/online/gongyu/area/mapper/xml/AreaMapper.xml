@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.gongyu.gy.dao.MetroAreaDao">
+    <resultMap id="area" type="io.gongyu.gy.entity.AreaEntity">
+         <id property="area_id" column="area_id"></id>
+         <result property="area_name" column="area_name"></result>
+         <collection  property="me"  ofType="io.gongyu.gy.entity.MetroEntity" column="me">
+             <result property="metro_id" column="metro_id"></result>
+             <result property="metro_name" column="metro_name"></result>
+             <collection property="mea" ofType="io.gongyu.gy.entity.MetroAreaEntity" column="mea">
+                 <result property="subway_station" column="subway_station"></result>
+             </collection>
+         </collection>
+
+    </resultMap>
+    <select id="listArea" resultMap="area">
+select a.area_id,a.area_name,m.metro_id,m.metro_name,ma.subway_station
+from gongyu_area a left join gongyu_metro  m  on m.area_id =a.area_id left JOIN gongyu_metro_area ma on ma.metro_id=m.metro_id
+ and a.area_id=ma.area_id
+</select>
+
+
+</mapper>
